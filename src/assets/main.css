@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-    body {
-        background-color: black;
-    }
+
+
+body {
+    background-image: url(https://c.wallhere.com/photos/d9/b0/digital_art_dark_lines-102550.png!d);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    background-attachment: fixed;
+    width: 100vw;
+    
+}
+
+html, body {
+    scroll-behavior: smooth;
+
+}
