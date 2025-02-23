@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Druk';
+    src: url('./fonts/Druk Wide Cyr.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat.woff2') format('woff2');
+}
+
 
 body {
     background-image: url(https://i.pinimg.com/736x/e0/88/aa/e088aa8efbdfdd6627b12c8cd00d92dc.jpg);
@@ -10,10 +20,17 @@ body {
     color: white;
     background-attachment: fixed;
     width: 100vw;
-    
 }
 
 html, body {
     scroll-behavior: smooth;
 
+}
+
+.druk {
+    font-family: 'Druk';
+}
+
+.montserrat {
+    font-family: 'Montserrat';
 }

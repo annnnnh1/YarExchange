@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, provide, reactive, ref, watch } from 'vue';
+import { onMounted, provide, reactive, ref, watch } from 'vue';
 import axios from 'axios';
 
 
@@ -36,8 +36,8 @@ const onReloadPrice = () => {
 const fetchPrice = async () => {
     try {
         if(!reloadPrice.value) {
-            const { data } = await axios.get('https://min-api.cryptocompare.com/data/price?fsym=USDT&tsyms=RUB')
-            USDTPrice.value = data.RUB
+            const { data } = await axios.get('https://7213635fa4b3ba25.mokky.dev/price')
+            USDTPrice.value = data[0].RUB
         }
     } catch(e) {
         errPrice.value = true
@@ -64,7 +64,7 @@ provide('buyChecked', {buy})
     <header class=" px-[60px] max-[768px]:px-[30px] max-[450px]:px-[15px] max-w-[1440px] m-auto">
         <div class="flex justify-between items-center py-2.5">
             <router-link to="/">
-                <h1 class=" text-[32px] max-[768px]:text-[28px] max-[450px]:text-[22px] font-bold text-[#009000] tracking-widest uppercase">Yar Exchange</h1>
+                <h1 class=" text-[26px] max-[768px]:text-[21px] max-[450px]:text-[16px] font-bold text-[#009000] tracking-widest uppercase druk">Yar Exchange</h1>
             </router-link>
 
             <nav class="flex gap-10 max-[1170px]:hidden">
@@ -90,15 +90,15 @@ provide('buyChecked', {buy})
     <main class="max-w-[1440px] m-auto">
         <section id="calculator" 
         class="mt-[100px] max-[768px]:mt-[30px] pt-[50px] flex px-[60px] max-[768px]:px-[30px] max-[450px]:px-[15px] gap-12
-            max-[1170px]:flex-col max-[1170px]:items-center max-[1170px]:gap-[100px] max-[1170px]:content-center"
+            max-[1170px]:flex-col max-[1170px]:items-center max-[1170px]:gap-[80px] max-[1170px]:content-center"
         >
             <div class=" max-w-[680px] max-[1170px]:w-[90%] max-[1170px]:text-center">
-                <h1 class="text-[50px] max-[768px]:text-[24px] font-bold uppercase text-balance leading-[70px] max-[768px]:leading-[136%]">Обмен криптовалюты в <span class="text-[#009000]">России, Турции, ОАЭ, Китае, Америке</span> вместе с</h1>
-                <p class="text-[50px] max-[768px]:text-[24px] uppercase tracking-widest text-[#009000] font-bold">YAR EXCHANGE</p>
-                <h3 class="text-[20px] mt-3 max-[768px]:text-[14px]">Безопасный и быстрый обмен  <span class="text-[#009000]">криптовалют</span> на наличные.</h3>
-                <h3 class="text-[20px] max-[768px]:text-[14px]">Наш офис находится в г. <span class="text-[#009000]">Ярославль</span>.</h3>
+                <h1 class="text-[40px] max-[768px]:text-[20px] font-bold uppercase text-balance leading-[65px] max-[768px]:leading-[136%] druk">Обмен криптовалюты в <span class="text-[#009000]">России, Турции, ОАЭ, Китае, Америке</span> вместе с</h1>
+                <p class="text-[40px] max-[768px]:text-[20px] uppercase tracking-widest text-[#009000] font-bold druk">YAR EXCHANGE</p>
+                <h3 class="text-[20px] mt-3 max-[768px]:text-[14px] montserrat">Безопасный и быстрый обмен  <span class="text-[#009000]">криптовалют</span> на наличные.</h3>
+                <h3 class="text-[20px] max-[768px]:text-[14px] montserrat">Наш офис находится в г. <span class="text-[#009000]">Ярославль</span>.</h3>
 
-                <button class="bg-[#009000] py-3 max-[768px]:p-[10px] max-[768px]:w-full  rounded-md w-[400px] mt-[100px] max-[1170px]:mt-[50px] hover:opacity-85 duration-200">
+                <button class="bg-[#009000] py-3 max-[768px]:p-[10px] max-[768px]:w-full  rounded-md w-[400px] mt-[60px] max-[1170px]:mt-[50px] hover:opacity-85 duration-200">
                     <a href="https://t.me/YARExchange" target="_blank" class="flex items-center gap-5 justify-center text-[24px] max-[768px]:text-[18px]">
                         Написать нам 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 30 31" class="w-[40px] h-[40px] max-[1170px]:w-[30px] max-[1170px]:h-[30px] max-[768px]:w-[25px] max-[768px]:h-[25px] ">
@@ -112,13 +112,13 @@ provide('buyChecked', {buy})
 
             <div class="min-w-[500px] max-[550px]:min-w-[400px] max-[470px]:min-w-[300px] max-[320px]:min-w-[280px] p-4 border border-[#009000] rounded-md bg-black bg-opacity-0 backdrop-blur-sm max-h-[400px]">
                 <div class="flex items-start gap-2">
-                    <div class=" border-b-[4px] py-3 flex justify-center w-1/2 text-[18px] opacity-50 hover:opacity-90 duration-300 cursor-pointer"
+                    <div class=" border-b-[4px] py-3 flex justify-center w-1/2 text-[18px] opacity-50 hover:opacity-90 duration-300 cursor-pointer montserrat"
                         :class="buy ? 'border-b-[#009000] opacity-90' : ''"
                         @click="buy = true"
                     >
                         Купить
                     </div>
-                    <div class="border-b-[4px] py-3 flex justify-center w-1/2 text-[18px] opacity-50 hover:opacity-90 duration-300 cursor-pointer"
+                    <div class="border-b-[4px] py-3 flex justify-center w-1/2 text-[18px] opacity-50 hover:opacity-90 duration-300 cursor-pointer montserrat"
                         :class="!buy ? 'border-b-[#009000] opacity-90' : ''"
                         @click="buy = false"
                     >
@@ -133,12 +133,12 @@ provide('buyChecked', {buy})
                         <div class="relative">
                             <input type="number" 
                                 :placeholder="buy ? 'Отдаете' : 'Получаете'"
-                                class="w-full appearance-none bg-transparent p-3 border-none focus:outline-none text-[18px]"
+                                class="w-full appearance-none bg-transparent p-3 border-none focus:outline-none text-[18px] montserrat"
                                 v-model="trade.RUB"
                                 @input="tradeUSDTRub"
                             >
 
-                            <p class="absolute right-0 top-2.5 flex items-center gap-2">
+                            <p class="absolute right-0 top-2.5 flex items-center gap-2 montserrat">
                                 <span>RUB</span>
                                 <img src="./assets/img/CASHRUB.svg" alt="" class="w-[28px]">
                             </p>
@@ -149,12 +149,12 @@ provide('buyChecked', {buy})
                         <div class="relative">
                             <input type="number" 
                                 :placeholder="!buy ? 'Отдаете' : 'Получаете'"
-                                class="w-full appearance-none bg-transparent p-3 border-none focus:outline-none text-[18px]"
+                                class="w-full appearance-none bg-transparent p-3 border-none focus:outline-none text-[18px] montserrat"
                                 v-model="trade.USDT"
                                 @input="tradeRubUSDT"
                             >
 
-                            <p class="absolute right-0 top-2.5 flex items-center gap-2">
+                            <p class="absolute right-0 top-2.5 flex items-center gap-2 montserrat">
                                 <span>USDT</span>
                                 <img src="./assets/img/USDT.svg" alt="" class="w-[28px]">
                             </p>
@@ -163,13 +163,13 @@ provide('buyChecked', {buy})
                 </div>
 
                 <div class="mt-5 px-3">
-                    <div class="flex justify-between text-[14px] max-[360px]:text-[12px]">
+                    <div class="flex justify-between text-[14px] max-[360px]:text-[11px] montserrat">
                         <p>Текущий курс</p>
 
-                        <div class="flex gap-2 items-center">
+                        <div class="flex gap-1 items-center">
                             1 USDT ≈ {{ USDTPrice }} RUB
 
-                            <svg data-tooltip-target="tooltip-default" version="1.1" @click="fetchPrice(), onReloadPrice()" class="w-[16px] cursor-pointer outline-none" :class="reloadPrice ? 'anim-reload' : ''" 
+                            <svg data-tooltip-target="tooltip-default" version="1.1" @click="fetchPrice(), onReloadPrice()" class="w-[14px] max-[360px]:w-[13px] cursor-pointer outline-none" :class="reloadPrice ? 'anim-reload' : ''" 
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <path style="fill:#71C285;" d="M472.615,295.385C472.615,415.015,375.631,512,256,512S39.385,415.015,39.385,295.385h59.077 c0,87.01,70.528,157.538,157.538,157.538s157.538-70.528,157.538-157.538S343.01,137.846,256,137.846v78.769L147.692,108.308 l0.985-0.985L256,0l0,0v78.769C375.631,78.769,472.615,175.754,472.615,295.385z"/>
                             </svg>
@@ -180,11 +180,11 @@ provide('buyChecked', {buy})
                         </div>
                     </div>
 
-                    <p v-if="errPrice" class="text-[12px] text-red-500 mt-2">Ошибка отображения курса, попробуйте еще раз</p>
+                    <p v-if="errPrice" class="text-[12px] text-red-500 mt-2 montserrat">Ошибка отображения курса, попробуйте еще раз</p>
 
 
-                    <p class="text-[12px] text-slate-400 mt-3">* Размер комиссии за обмен обговаривается индивидуально. <br>
-                        Для уточнения свяжитесь с  <span class="text-[#009000] cursor-pointer hover:border-b hover:border-b-[#009000]">нами</span>.
+                    <p class="text-[12px] text-slate-400 mt-3 montserrat">* Размер комиссии за обмен обговаривается индивидуально. <br>
+                        Для уточнения свяжитесь с  <a href="https://t.me/YARExchange" target="_blank" class="text-[#009000] cursor-pointer hover:border-b hover:border-b-[#009000]">нами</a>.
                     </p>
                 </div>
 
@@ -256,7 +256,7 @@ provide('buyChecked', {buy})
     <footer class="bg-black w-full py-10 mt-[100px]">
         <div class="max-w-[1440px] m-auto px-[60px] max-[768px]:px-[30px] max-[450px]:px-[15px] flex max-[850px]:flex-col max-[850px]:gap-10 justify-between items-center">
             <div>
-                <h1 class=" text-[32px] max-[768px]:text-[28px] font-bold text-[#009000] tracking-widest uppercase">Yar Exchange</h1>
+                <h1 class=" text-[25px] max-[768px]:text-[22px] font-bold text-[#009000] tracking-widest uppercase druk">Yar Exchange</h1>
             </div>
 
             <div class=" flex gap-[350px] max-[1300px]:gap-[300px] max-[1200px]:gap-[250px] max-[1100px]:gap-[200px] max-[1040px]:gap-[150px] max-[950px]:gap-[120px] max-[900px]:gap-[90px] max-[540px]:gap-[50px] max-[500px]:gap-[30px] ">
@@ -281,7 +281,7 @@ provide('buyChecked', {buy})
                     </button>
 
                     <button class="bg-[#009000] bg-opacity-30 border border-[#009000] p-2 rounded-md hover:opacity-85 duration-200">
-                        <a class="flex items-center gap-5 max-[500px]:gap-3 max-[500px]:justify-evenly max-[500px]:text-[14px]" href="https://wa.me/message/QNC25AFZ7NSNA1" target="_blank">
+                        <a class="flex items-center justify-between gap-5 max-[500px]:gap-3 max-[500px]:text-[14px]" href="https://wa.me/message/QNC25AFZ7NSNA1" target="_blank">
                             WhatsApp
 
                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0,0,256,256">
@@ -291,7 +291,6 @@ provide('buyChecked', {buy})
                     </button>
                 </div>
             </div>
-            
         </div>
     </footer>
 </template>
